@@ -1,8 +1,9 @@
 import { test } from '@playwright/test';
 
 test('Thêm sản phẩm vào giỏ hàng', async({page}) =>{
-    /* Truy cập website */
-    await page.goto('https://material.playwrightvn.com/');
+    await test.step('Navigate to material playwright việt nam', async() =>{
+        await page.goto('https://material.playwrightvn.com/');
+    });
 
     /* Click vào Bài học 2 */
     await test.step('Click vào bài học 2', async() =>{

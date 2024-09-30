@@ -1,8 +1,9 @@
 import { test } from '@playwright/test';
 
 test('Truy cập Bài 03', async({page})=>{
-    /* Truy cập website */
-    await page.goto('https://material.playwrightvn.com/');
+    await test.step('Navigate to material playwright việt nam', async() =>{
+        await page.goto('https://material.playwrightvn.com/');
+    });
 
     /* Click vào Bài học 3 */
     await test.step('Click vào Bài học 3', async()=>{
@@ -25,10 +26,10 @@ test('Truy cập Bài 03', async({page})=>{
             await dialog.accept(); // Nhấn nút "OK" trên popup
         });
         for(let i = 0; i < totalItem; i++){
-            if((i+1) % 2 !== 0){
-                const deleteItem = await page.locator(`//button[@id="todo-${i+1}-delete"]`)
-                await deleteItem.waitFor(); // Đảm bảo đã kịp load element
-                await deleteItem.click();
+            if((i) % 2 !== 0){
+                const deleteItem = await page.locator(`//button[@id="todo-${i}-delete"]`).click();
+                //await deleteItem.waitFor(); // Đảm bảo đã kịp load element
+                //await deleteItem.click();
             }
         }
     });
